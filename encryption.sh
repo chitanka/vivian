@@ -40,7 +40,7 @@ decrypt_file() {
 openssl_file() {
 	encryption_file_create
 	local extra_options=${3-}
-	openssl aes-256-cbc $extra_options -in "$1" -out "$2" -pass file:$vivian_encryption_file
+	openssl aes-256-cbc -pbkdf2 $extra_options -in "$1" -out "$2" -pass file:$vivian_encryption_file
 	encryption_file_destroy
 }
 
