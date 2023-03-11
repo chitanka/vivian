@@ -3,7 +3,7 @@ is_function_loaded make_sure_dir_exits || source file.sh
 
 dump_mysql_databases() {
 	# list all databases. exclude some meta ones
-	local skipped="Database|information_schema|mysql|performance_schema|phpmyadmin"
+	local skipped="Database|information_schema|mysql|performance_schema|sys|phpmyadmin"
 	if [[ -n $skipped_databases ]]; then
 		skipped=$skipped"|"${skipped_databases// /|}
 	fi
